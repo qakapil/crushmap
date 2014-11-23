@@ -1,0 +1,124 @@
+// Ceph Crush Map
+digraph {
+	graph [bb="0,0,4,8" resolution=200 size="100,500"]
+		0 [label="device: osd.0" fillcolor=Yellow style=filled]
+		1 [label="device: osd.1" fillcolor=Yellow style=filled]
+		2 [label="device: osd.2" fillcolor=Yellow style=filled]
+		3 [label="device: osd.3" fillcolor=Yellow style=filled]
+		4 [label="device: osd.4" fillcolor=Yellow style=filled]
+		5 [label="device: osd.5" fillcolor=Yellow style=filled]
+		6 [label="device: osd.6" fillcolor=Yellow style=filled]
+		7 [label="device: osd.7" fillcolor=Yellow style=filled]
+		8 [label="device: osd.8" fillcolor=Yellow style=filled]
+		9 [label="device: osd.9" fillcolor=Yellow style=filled]
+		10 [label="device: osd.10" fillcolor=Yellow style=filled]
+		11 [label="device: osd.11" fillcolor=Yellow style=filled]
+		12 [label="device: osd.12" fillcolor=Yellow style=filled]
+		13 [label="device: osd.13" fillcolor=Yellow style=filled]
+		14 [label="device: osd.14" fillcolor=Yellow style=filled]
+		15 [label="device: osd.15" fillcolor=Yellow style=filled]
+		16 [label="device: osd.16" fillcolor=Yellow style=filled]
+		17 [label="device: osd.17" fillcolor=Yellow style=filled]
+		18 [label="device: osd.18" fillcolor=Yellow style=filled]
+		19 [label="device: osd.19" fillcolor=Yellow style=filled]
+		20 [label="device: osd.20" fillcolor=Yellow style=filled]
+		21 [label="device: osd.21" fillcolor=Yellow style=filled]
+		22 [label="device: osd.22" fillcolor=Yellow style=filled]
+		23 [label="device: osd.23" fillcolor=Yellow style=filled]
+		24 [label="device: osd.24" fillcolor=Yellow style=filled]
+		25 [label="device: osd.25" fillcolor=Yellow style=filled]
+		26 [label="device: osd.26" fillcolor=Yellow style=filled]
+		27 [label="device: osd.27" fillcolor=Yellow style=filled]
+		28 [label="device: osd.28" fillcolor=Yellow style=filled]
+		29 [label="device: osd.29" fillcolor=Yellow style=filled]
+		30 [label="device: osd.30" fillcolor=Yellow style=filled]
+		31 [label="device: osd.31" fillcolor=Yellow style=filled]
+		32 [label="device: osd.32" fillcolor=Yellow style=filled]
+		33 [label="device: osd.33" fillcolor=Yellow style=filled]
+		34 [label="device: osd.34" fillcolor=Yellow style=filled]
+		35 [label="device: osd.35" fillcolor=Yellow style=filled]
+		36 [label="device: osd.36" fillcolor=Yellow style=filled]
+		37 [label="device: osd.37" fillcolor=Yellow style=filled]
+		38 [label="device: osd.38" fillcolor=Yellow style=filled]
+		39 [label="device: osd.39" fillcolor=Yellow style=filled]
+		40 [label="device: osd.40" fillcolor=Yellow style=filled]
+		41 [label="device: osd.41" fillcolor=Yellow style=filled]
+		42 [label="device: osd.42" fillcolor=Yellow style=filled]
+		43 [label="device: osd.43" fillcolor=Yellow style=filled]
+		44 [label="device: osd.44" fillcolor=Yellow style=filled]
+		45 [label="device: osd.45" fillcolor=Yellow style=filled]
+		46 [label="device: osd.46" fillcolor=Yellow style=filled]
+		47 [label="device: osd.47" fillcolor=Yellow style=filled]
+		-1 [label="host: ceph001-ssd" fillcolor=Red style=filled]
+		-2 [label="host: ceph002-ssd" fillcolor=Red style=filled]
+		-3 [label="host: ceph003-ssd" fillcolor=Red style=filled]
+		-4 [label="root: default-ssd" fillcolor=Red style=filled]
+		-5 [label="host: ceph001-ec" fillcolor=Red style=filled]
+		-6 [label="host: ceph002-ec" fillcolor=Red style=filled]
+		-7 [label="host: ceph003-ec" fillcolor=Red style=filled]
+		-8 [label="root: default-ec" fillcolor=Red style=filled]
+		-9 [label="host: ceph001-cache" fillcolor=Red style=filled]
+		-10 [label="host: ceph002-cache" fillcolor=Red style=filled]
+		-11 [label="host: ceph003-cache" fillcolor=Red style=filled]
+		-12 [label="root: default-cache" fillcolor=Red style=filled]
+		rule0 [label="{'min_size': 1, 'rule_name': 'cache', 'steps': [{'item_name': 'default-cache', 'item': -12, 'op': 'take'}, {'num': 0, 'type': 'host', 'op': 'chooseleaf_firstn'}, {'op': 'emit'}], 'ruleset': 0, 'type': 1, 'rule_id': 0, 'max_size': 10}" fillcolor=Blue shape=box style=filled]
+		rule1 [label="{'min_size': 1, 'rule_name': 'metadata', 'steps': [{'item_name': 'default-ssd', 'item': -4, 'op': 'take'}, {'num': 0, 'type': 'host', 'op': 'chooseleaf_firstn'}, {'op': 'emit'}], 'ruleset': 1, 'type': 1, 'rule_id': 1, 'max_size': 10}" fillcolor=Blue shape=box style=filled]
+		rule2 [label="{'min_size': 3, 'rule_name': 'ecdata', 'steps': [{'num': 5, 'op': 'set_chooseleaf_tries'}, {'item_name': 'default-ec', 'item': -8, 'op': 'take'}, {'num': 0, 'type': 'osd', 'op': 'choose_indep'}, {'op': 'emit'}], 'ruleset': 2, 'type': 3, 'rule_id': 2, 'max_size': 20}" fillcolor=Blue shape=box style=filled]
+			-1 -> 0
+			-1 -> 2
+			-2 -> 16
+			-2 -> 18
+			-3 -> 32
+			-3 -> 34
+			-4 -> -1
+			-4 -> -2
+			-4 -> -3
+			-5 -> 4
+			-5 -> 5
+			-5 -> 6
+			-5 -> 7
+			-5 -> 8
+			-5 -> 9
+			-5 -> 10
+			-5 -> 11
+			-5 -> 12
+			-5 -> 13
+			-5 -> 14
+			-5 -> 15
+			-6 -> 20
+			-6 -> 21
+			-6 -> 22
+			-6 -> 23
+			-6 -> 24
+			-6 -> 25
+			-6 -> 26
+			-6 -> 27
+			-6 -> 28
+			-6 -> 29
+			-6 -> 30
+			-6 -> 31
+			-7 -> 36
+			-7 -> 37
+			-7 -> 38
+			-7 -> 39
+			-7 -> 40
+			-7 -> 41
+			-7 -> 42
+			-7 -> 43
+			-7 -> 44
+			-7 -> 45
+			-7 -> 46
+			-7 -> 47
+			-8 -> -5
+			-8 -> -6
+			-8 -> -7
+			-9 -> 1
+			-9 -> 3
+			-10 -> 17
+			-10 -> 19
+			-11 -> 33
+			-11 -> 35
+			-12 -> -9
+			-12 -> -10
+			-12 -> -11
+}

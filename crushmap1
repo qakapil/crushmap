@@ -1,0 +1,18 @@
+// Ceph Crush Map
+digraph {
+	graph [bb="0,0,4,8" resolution=200 size="100,500"]
+		0 [label="device: osd.0" fillcolor=Yellow style=filled]
+		1 [label="device: osd.1" fillcolor=Yellow style=filled]
+		2 [label="device: osd.2" fillcolor=Yellow style=filled]
+		-1 [label="root: default" fillcolor=Red style=filled]
+		-2 [label="host: teuthida-4" fillcolor=Red style=filled]
+		-3 [label="host: teuthida-2" fillcolor=Red style=filled]
+		-4 [label="host: teuthida-1" fillcolor=Red style=filled]
+		rule0 [label="{'min_size': 1, 'rule_name': 'replicated_ruleset', 'steps': [{'item_name': 'default', 'item': -1, 'op': 'take'}, {'num': 0, 'type': 'host', 'op': 'chooseleaf_firstn'}, {'op': 'emit'}], 'ruleset': 0, 'type': 1, 'rule_id': 0, 'max_size': 10}" fillcolor=Blue shape=box style=filled]
+			-1 -> -2
+			-1 -> -3
+			-1 -> -4
+			-2 -> 0
+			-3 -> 1
+			-4 -> 2
+}
